@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+</head>
+<body>
+    <h1>Order Form</h1>
+    <form id="order-form">
+        <label for="your-name">Your Name:</label>
+        <input type="text" id="your-name" name="your-name" required>
+
+        <label for="your-message">Your Message:</label>
+        <textarea id="your-message" name="your-message" required></textarea>
+
+        <button type="submit">Send</button>
+    </form>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("lniG-JPUZkIwm0fj4"); // Your User ID (public key)
+        })();
+
+        document.getElementById("order-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            emailjs.sendForm('service_da6qydm', 'template_0zuf8v2', this)
+                .then(function() {
+                    alert("Your message has been sent!");
+                }, function(error) {
+                    console.error("EmailJS error:", error); // Log the error for debugging
+                    alert("Oops! Something went wrong. Please try again.");
+                });
+        });
+    </script>
+</body>
+</html>
+
