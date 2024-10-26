@@ -14,8 +14,9 @@
         <label for="your-message">Вид на предпочитания чип:</label>
         <textarea id="your-message" name="your-message" required></textarea>
 
-        <label for="your-address">Адрес на офис за доставка:</label> <!-- Corrected the ID and name -->
-        <textarea id="your-address" name="your-address" required></textarea> <!-- Corrected the ID and name -->
+	<label for="your-adress">Адрес на офис за доставка:</label>
+        <textarea id="your-adress" name="your-adress" required></textarea>
+
 
         <button type="submit">Send</button>
     </form>
@@ -26,18 +27,17 @@
             emailjs.init("lniG-JPUZkIwm0fj4"); // Your User ID (public key)
         })();
 
-        document.getElementById("orders").addEventListener("submit", function(event) { // Use the correct form ID
+        document.getElementById("order-form").addEventListener("submit", function(event) {
             event.preventDefault();
             emailjs.sendForm('service_da6qydm', 'template_0zuf8v2', this)
                 .then(function() {
-                    alert("Вашето съобщение беше изпратено!"); // Changed to Bulgarian
+                    alert("Your message has been sent!");
                 }, function(error) {
                     console.error("EmailJS error:", error); // Log the error for debugging
-                    alert("Упс! Нещо се обърка. Моля, опитайте отново."); // Changed to Bulgarian
+                    alert("Oops! Something went wrong. Please try again.");
                 });
         });
     </script>
 </body>
 </html>
-
 
