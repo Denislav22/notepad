@@ -7,15 +7,16 @@
 </head>
 <body>
     <h1>Поръчки</h1>
-    <form id="orders">
+    <form id=Поръчки">
         <label for="your-name">Вашите имена:</label>
         <input type="text" id="your-name" name="your-name" required>
 
         <label for="your-message">Вид на предпочитания чип:</label>
         <textarea id="your-message" name="your-message" required></textarea>
 
-        <label for="your-address">Адрес на офис за доставка:</label> <!-- Corrected to 'your-address' -->
-        <textarea id="your-address" name="your-address" required></textarea> <!-- Corrected to 'your-address' -->
+	<label for="your-address">Адрес на офис за доставка:</label>
+        <textarea id="your-address" name="your-address" required></textarea>
+
 
         <button type="submit">Send</button>
     </form>
@@ -26,18 +27,21 @@
             emailjs.init("lniG-JPUZkIwm0fj4"); // Your User ID (public key)
         })();
 
-        document.getElementById("orders").addEventListener("submit", function(event) { // Changed to 'orders'
+        document.getElementById("order-form").addEventListener("submit", function(event) {
             event.preventDefault();
             emailjs.sendForm('service_da6qydm', 'template_0zuf8v2', this)
                 .then(function() {
-                    alert("Вашето съобщение беше изпратено!"); // Changed to Bulgarian
+                    alert("Your message has been sent!");
                 }, function(error) {
                     console.error("EmailJS error:", error); // Log the error for debugging
-                    alert("Упс! Нещо се обърка. Моля, опитайте отново."); // Changed to Bulgarian
+                    alert("Oops! Something went wrong. Please try again.");
                 });
         });
     </script>
 </body>
 </html>
-
-
+  towa e html fila a towa w emailjs <p><strong>Имена:</strong> {{your-name}}</p>
+<p><strong>Вид на чипа:</strong></p>
+<p>{{your-message}}</p>
+<p><strong>Адрес:</strong></p>
+<p>{{your-address}}</p>
