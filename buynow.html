@@ -7,15 +7,16 @@
 </head>
 <body>
     <h1>Поръчки</h1>
-    <form id="order-form"> <!-- Поправено id -->
+    <form id="order-form">
         <label for="your-name">Вашите имена:</label>
         <input type="text" id="your-name" name="your-name" required>
 
         <label for="your-message">Вид на предпочитания чип:</label>
         <textarea id="your-message" name="your-message" required></textarea>
 
-        <label for="your-address">Адрес на офис за доставка:</label>
-        <textarea id="your-address" name="your-address" required></textarea>
+	<label for="your-adress">Адрес на офис за доставка:</label>
+        <textarea id="your-adress" name="your-adress" required></textarea>
+
 
         <button type="submit">Send</button>
     </form>
@@ -30,10 +31,10 @@
             event.preventDefault();
             emailjs.sendForm('service_da6qydm', 'template_0zuf8v2', this)
                 .then(function() {
-                    alert("Вашето съобщение е изпратено!"); // Съобщение на български
+                    alert("Your message has been sent!");
                 }, function(error) {
-                    console.error("EmailJS error:", error); // Логиране на грешката за отстраняване на проблеми
-                    alert("Упс! Нещо се обърка. Моля, опитайте отново.");
+                    console.error("EmailJS error:", error); // Log the error for debugging
+                    alert("Oops! Something went wrong. Please try again.");
                 });
         });
     </script>
