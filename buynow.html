@@ -11,12 +11,15 @@
         <label for="your-name">Вашите имена:</label>
         <input type="text" id="your-name" name="your-name" required>
 
-        <label for="your-message">Вид на предпочитания чип:</label>
-        <textarea id="your-message" name="your-message" required></textarea>
+        <label for="chip-type">Вид на предпочитания чип:</label>
+        <select id="chip-type" name="chip-type" required>
+            <option value="за домашен любимец">За домашен любимец</option>
+            <option value="за визитна картичка">За визитна картичка</option>
+            <option value="за кола">За кола</option>
+        </select>
 
-	<label for="your-message">Адрес на офис за доставка:</label>
-        <textarea id="your-message" name="your-message" required></textarea>
-
+        <label for="delivery-address">Адрес на офис за доставка:</label>
+        <textarea id="delivery-address" name="delivery-address" required></textarea>
 
         <button type="submit">Send</button>
     </form>
