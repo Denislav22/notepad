@@ -21,10 +21,6 @@
         <label for="delivery-address">Адрес на офис за доставка:</label>
         <select id="delivery-address" name="delivery-address" required>
             <option value="">Изберете офис на Еконт</option>
-            <option value="София - Централен офис">София - Централен офис</option>
-            <option value="Пловдив - Тракия">Пловдив - Тракия</option>
-            <option value="Варна - Център">Варна - Център</option>
-            <!-- Добавете още опции за други офиси -->
         </select>
 
         <button type="submit">Send</button>
@@ -45,6 +41,22 @@
                     console.error("EmailJS error:", error); // Log the error for debugging
                     alert("Oops! Something went wrong. Please try again.");
                 });
+        });
+
+        const econtOffices = [
+            { city: "София", office: "Централен офис" },
+            { city: "Пловдив", office: "Тракия" },
+            { city: "Варна", office: "Център" },
+            // Добавете още офиси тук
+        ];
+
+        const deliveryAddressSelect = document.getElementById("delivery-address");
+
+        econtOffices.forEach(office => {
+            const option = document.createElement("option");
+            option.value = `${office.city} - ${office.office}`;
+            option.text = `${office.city} - ${office.office}`;
+            deliveryAddressSelect.add(option);
         });
     </script>
 </body>
