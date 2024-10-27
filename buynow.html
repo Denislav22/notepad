@@ -45,10 +45,10 @@
             emailjs.sendForm('service_da6qydm', 'template_0zuf8v2', this)
                 .then(function() {
                     console.log("EmailJS: Message sent successfully.");
-                    alert("Your message has been sent!");
+                    alert("Благодарим Ви, поръчката Ви е приета успешно!");
                 }, function(error) {
-                    console.error("EmailJS error:", error); // Log the error for debugging
-                    alert("Oops! Something went wrong. Please try again.");
+                    console.error("EmailJS грешка:", error); // Log the error for debugging
+                    alert("Опитайте отново нещо се обърка.");
                 })
                 .finally(function() {
                     // Re-enable the submit button
