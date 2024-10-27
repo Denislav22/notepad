@@ -19,7 +19,13 @@
         </select>
 
         <label for="delivery-address">Адрес на офис за доставка:</label>
-        <textarea id="delivery-address" name="delivery-address" required></textarea>
+        <select id="delivery-address" name="delivery-address" required>
+            <option value="">Изберете офис на Еконт</option>
+            <option value="София - Централен офис">София - Централен офис</option>
+            <option value="Пловдив - Тракия">Пловдив - Тракия</option>
+            <option value="Варна - Център">Варна - Център</option>
+            <!-- Добавете още опции за други офиси -->
+        </select>
 
         <button type="submit">Send</button>
     </form>
@@ -43,5 +49,3 @@
     </script>
 </body>
 </html>
-
-
