@@ -11,20 +11,23 @@
         <label for="your-name">Вашите имена:</label>
         <input type="text" id="your-name" name="your-name" required>
 
-        <label for="chip-type">Вид на предпочитания чип:</label>
-        <select id="chip-type" name="chip-type" required>
-            <option value="">Изберете вид на чипа</option>
-            <option value="за домашен любимец">За домашен любимец</option>
-            <option value="за визитна картичка">За визитна картичка</option>
-            <option value="за кола">За кола</option>
-        </select>
+        <div style="margin-top: 20px;">
+            <label for="chip-type">Вид на предпочитания чип:</label>
+            <select id="chip-type" name="chip-type" required>
+                <option value="за домашен любимец">За домашен любимец</option>
+                <option value="за визитна картичка">За визитна картичка</option>
+                <option value="за кола">За кола</option>
+            </select>
+        </div>
 
-        <label for="delivery-address">Адрес на офис за доставка:</label>
-        <select id="delivery-address" name="delivery-address" required>
-            <option value="">Изберете офис на Еконт</option>
-        </select>
+        <div style="margin-top: 20px;">
+            <label for="delivery-address">Адрес на офис за доставка:</label>
+            <select id="delivery-address" name="delivery-address" required>
+                <option value="">Изберете офис на Еконт</option>
+            </select>
+        </div>
 
-        <button type="submit">Send</button>
+        <button type="submit" style="margin-top: 20px;">Send</button>
     </form>
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
@@ -35,12 +38,21 @@
 
         document.getElementById("order-form").addEventListener("submit", function(event) {
             event.preventDefault();
+            
+            // Disable the submit button to prevent multiple submissions
+            document.querySelector("button[type='submit']").disabled = true;
+
             emailjs.sendForm('service_da6qydm', 'template_0zuf8v2', this)
                 .then(function() {
-                    alert("Благодарим Ви, поръчката Ви е приета успешно!");
+                    console.log("EmailJS: Message sent successfully.");
+                    alert("Your message has been sent!");
                 }, function(error) {
-                    console.error("EmailJS грешка:", error); // Log the error for debugging
-                    alert("Нещо се обърка! Опитайте отново, моля!");
+                    console.error("EmailJS error:", error); // Log the error for debugging
+                    alert("Oops! Something went wrong. Please try again.");
+                })
+                .finally(function() {
+                    // Re-enable the submit button
+                    document.querySelector("button[type='submit']").disabled = false;
                 });
         });
 
@@ -62,4 +74,6 @@
     </script>
 </body>
 </html>
+
+
 
