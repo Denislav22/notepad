@@ -14,7 +14,7 @@
         <div style="margin-top: 20px;">
             <label for="chip-type">Вид на предпочитания чип:</label>
             <select id="chip-type" name="chip-type" required>
-                 <option value="">Изберете вид на чипа</option>
+                <option value="">Изберете вид на чипа</option>
                 <option value="за домашен любимец">За домашен любимец</option>
                 <option value="за визитна картичка">За визитна картичка</option>
                 <option value="за кола">За кола</option>
@@ -44,8 +44,8 @@
             document.querySelector("button[type='submit']").disabled = true;
 
             emailjs.sendForm('service_da6qydm', 'template_0zuf8v2', this)
-                .then(function() {
-                    console.log("EmailJS: Message sent successfully.");
+                .then(function(response) {
+                    console.log("EmailJS: Message sent successfully. Response:", response);
                     alert("Благодарим Ви, поръчката Ви е приета успешно!");
                 }, function(error) {
                     console.error("EmailJS грешка:", error); // Log the error for debugging
@@ -75,6 +75,7 @@
     </script>
 </body>
 </html>
+
 
 
 
