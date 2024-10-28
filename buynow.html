@@ -24,6 +24,9 @@
         <label for="your-name">Вашите имена:</label>
         <input type="text" id="your-name" name="your-name" required>
 
+        <label for="your-email">Вашият имейл:</label>
+        <input type="email" id="your-email" name="your-email" required>
+
         <div style="margin-top: 20px;">
             <label for="chip-type">Вид на предпочитания чип:</label>
             <select id="chip-type" name="chip-type" required>
@@ -67,6 +70,15 @@
                     console.log("EmailJS: Message sent successfully. Response:", response);
                     document.getElementById("order-form").classList.add("hidden");
                     document.getElementById("success-message").classList.remove("hidden");
+
+                    // Изпращане на потвърждение по имейл
+                    const userEmail = document.getElementById("your-email").value;
+                    emailjs.send('service_da6qydm', 'template_0zuf8v2', {
+                        to_email: userEmail,
+                        to_name: document.getElementById("your-name").value,
+                        chip_type: document.getElementById("chip-type").value,
+                        delivery_address: document.getElementById("delivery-address").value
+                    });
                 }, function(error) {
                     console.error("EmailJS грешка:", error); // Log the error for debugging
                     alert("Опитайте отново, нещо се обърка.");
