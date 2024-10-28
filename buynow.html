@@ -57,6 +57,8 @@
         document.getElementById("order-form").addEventListener("submit", function(event) {
             event.preventDefault();
             
+            console.log("Формата беше подадена."); // Debugging message
+            
             // Disable the submit button to prevent multiple submissions
             document.querySelector("button[type='submit']").disabled = true;
 
@@ -90,7 +92,8 @@
             option.text = `${office.city} - ${office.office}`;
             deliveryAddressSelect.add(option);
         });
+
+        console.log("Скриптът беше зареден успешно."); // Debugging message
     </script>
 </body>
 </html>
-
