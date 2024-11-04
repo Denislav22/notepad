@@ -43,7 +43,7 @@
 </head>
 <body>
     <div class="container">
-        <img src="deni.JPG" alt="Профилна снимка">
+        <img src="https://raw.githubusercontent.com/Denislav22/notepad/main/deni.JPG" alt="Профилна снимка">
         <h1>Добре дошли на моята страница!</h1>
         <p>Тук можете да намерите всички мои контакти.</p>
         
